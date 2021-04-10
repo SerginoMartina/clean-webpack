@@ -1,0 +1,201 @@
+@import 'dropdown-variables';
+@import '../spacing/spacing';
+@import '../corner-radius/corner-radius';
+
+@mixin _generate-dropdown-class(
+    $color,
+    $background-color,
+    $vertical-padding,
+    $horizontal-padding,
+    $font-size,
+    $corner-radius,
+    $toggle-color,
+    $hover-background-color,
+    $hover-color,
+    $selected-font,
+    $min-width,
+    $disabled-color
+) {
+    .dropdown {
+        min-width: $min-width;
+
+        border: none;
+
+        font-size: $font-size;
+
+        color: $color;
+        background-color: $background-color;
+        display: inline-block;
+
+        @include corner-radius($corner-radius);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &__text {
+            align-items: center;
+            justify-content: space-between;
+            display: flex;
+
+            @include padding-left($horizontal-padding);
+            @include padding-right($horizontal-padding);
+            @include padding-top($vertical-padding);
+            @include padding-bottom($vertical-padding);
+        }
+
+        &__menu {
+            flex-direction: column;
+
+            background-color: $background-color;
+            display: none;
+        }
+
+        &__icon {
+            &--collapsed {
+                fill: $toggle-color;
+            }
+
+            &--expanded {
+                fill: $toggle-color;
+                display: none;
+            }
+        }
+
+        &__item {
+            display: block;
+
+            @include padding-left($horizontal-padding);
+            @include padding-right($horizontal-padding);
+            @include padding-top($vertical-padding);
+            @include padding-bottom($vertical-padding);
+
+            &-checked,
+            &-unchecked {
+                fill: $color;
+                display: none;
+            }
+
+            &-unchecked,
+            &-checked {
+                fill: $color;
+            }
+
+            &:hover {
+                color: $hover-color;
+                background-color: $hover-background-color;
+                cursor: pointer;
+
+                .dropdown__item-unchecked,
+                .dropdown__item-checked{
+                    fill: $hover-color;
+                }
+            }
+
+            &--selected {
+                font-family: $selected-font;
+            }
+
+            &--disabled {
+                color: $disabled-color;
+
+                .icon {
+                    fill: $disabled-color;
+                }
+
+                &:hover {
+                    color: $disabled-color;
+                    background-color: $background-color;
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        &.multiselect {
+            .dropdown__item-unchecked {
+                display: inline-block;
+            }
+
+            .dropdown__item {
+                &--selected {
+                    font-family: $selected-font;
+
+                    .dropdown__item-unchecked {
+                        display: none;
+                    }
+
+                    .dropdown__item-checked {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        &--expanded {
+            .dropdown__menu {
+                display: flex;
+            }
+
+            .dropdown__icon {
+                &--collapsed {
+                    display: none;
+                }
+
+                &--expanded {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+@mixin _generate-dropdown-color-modifier-class(
+    $dropdown-name,
+    $color,
+    $background-color,
+    $toggle-color,
+    $hover-background-color,
+    $hover-color,
+    $disabled-color
+) {
+    .dropdown.#{$dropdown-name} {
+        background-color: $background-color;
+
+        .dropdown__icon {
+            &--collapsed {
+                fill: $toggle-color;
+            }
+
+            &--expanded {
+                fill: $toggle-color;
+            }
+        }
+
+        .dropdown__menu {
+            background-color: $background-color;
+        }
+
+        .dropdown__item {
+            color: $color;
+
+            &:hover {
+                color: $hover-color;
+                background-color: $hover-background-color;
+            }
+
+            &--disabled {
+                color: $disabled-color;
+
+                .icon {
+                    fill: $disabled-color;
+                }
+
+                &:hover {
+                    color: $disabled-color;
+                    background-color: $background-color;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

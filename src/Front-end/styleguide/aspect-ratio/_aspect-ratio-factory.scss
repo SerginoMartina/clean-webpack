@@ -1,0 +1,5 @@
+@import 'aspect-ratio-variables';
+
+@function getAspectRatioMinHeightForBreakpoint($aspect-ratio, $breakpoint) {
+    @return map-get(map-get(map-get($aspect-ratios, $aspect-ratio), $breakpoint), height);
+}

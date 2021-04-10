@@ -1,0 +1,94 @@
+@import '../grid/grid-variables';
+
+$aspect-ratios: (
+    aspect-ratio-1-1: (
+        $XS: (
+            width: 560px,
+            height: 560px,
+        ),
+        $S: (
+            width: 680px,
+            height: 680px,
+        ),
+        $M: (
+            width: 464px,
+            height: 464px,
+        ),
+        $L: (
+            width: 584px,
+            height: 584px,
+        ),
+    ),
+    aspect-ratio-4-3: (
+        $XS: (
+            width: 560px,
+            height: 452px,
+        ),
+        $S: (
+            width: 348px,
+            height: 260px,
+        ),
+        $M: (
+            width: 464px,
+            height: 348px,
+        ),
+        $L: (
+            width: 484px,
+            height: 438px,
+        ),
+    ),
+    aspect-ratio-3-4: (
+        $XS: (
+            width: 375px,
+            height: 500px,
+        ),
+        $S: (
+            width: 375px,
+            height: 500px,
+        ),
+        $M: (
+            width: 375px,
+            height: 500px,
+        ),
+        $L: (
+            width: 375px,
+            height: 500px,
+        ),
+    ),
+    aspect-ratio-16-9: (
+        $XS: (
+            width: 768px,
+            height: 432px,
+        ),
+        $S: (
+            width: 768px,
+            height: 432px,
+        ),
+        $M: (
+            width: 1024px,
+            height: 576px,
+        ),
+        $L: (
+            width: 1280px,
+            height: 720px,
+        ),
+    ),
+    aspect-ratio-5-2: (
+        $XS: (
+            width: 160px,
+            height: 64px,
+        ),
+        $S: (
+            width: 200px,
+            height: 80px,
+        ),
+        $M: (
+            width: 200px,
+            height: 80px,
+        ),
+        $L: (
+            width: 200px,
+            height: 80px,
+        ),
+    ),
+) !default;

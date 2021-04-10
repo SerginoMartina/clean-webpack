@@ -1,0 +1,23 @@
+@import 'theme-variables';
+@import 'theme-factory';
+
+// general theming-component
+@each $theme-name, $theme in $container-themes {
+    .theme--#{$theme-name} {
+        @include container-theme($theme);
+    }
+}
+
+// button-component
+@each $theme-name, $theme in $button-component-themes {
+    .button.theme--#{$theme-name} {
+        @include button-theme($theme);
+    }
+}
+
+// gradient theming-component
+@each $theme-name, $theme in $gradient-themes {
+    .theme--#{$theme-name} {
+        @include gradient-theme($theme);
+    }
+}

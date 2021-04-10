@@ -1,0 +1,19 @@
+@import '~bootstrap/scss/utilities/embed'; // needed for aspect ratio workings
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before {
+        width: 100%;
+
+        padding-top: ($height / $width) * 100%;
+        display: block;
+        content: "";
+    }
+}
+@mixin aspect-ratio-child() {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

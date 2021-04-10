@@ -1,0 +1,9 @@
+@import 'layer-variables';
+
+@mixin z-index($layer: map-get($layers, base), $modifier: null) {
+    @if ($modifier) {
+        z-index: map-get($layers, $layer) + $modifier;
+    } @else {
+        z-index: map-get($layers, $layer);
+    }
+}

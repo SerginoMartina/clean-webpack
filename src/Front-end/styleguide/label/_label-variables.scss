@@ -1,0 +1,19 @@
+@import '../color/color-variables';
+
+$label-default: (
+    font-size: 11px,
+    font-weight: 700,
+    line-height: 13px,
+    color: $ui-color-white,
+    background-color: $ui-color-primary-black,
+    display: inline-block,
+    padding-left-right: spacing-3,
+    padding-top-bottom: spacing-2,
+) !default;
+
+$label-theme-modifiers: (
+    label--sale: (
+        font-color: $ui-color-white,
+        background: $identity-gradient-sale,
+    ),
+) !default;

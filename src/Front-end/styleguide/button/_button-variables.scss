@@ -1,0 +1,79 @@
+@import '../typography/typography-variables';
+@import '../color/color-variables';
+
+$button-default: (
+    font-weight: 700,
+    font-size: 20px,
+    line-height: 16px,
+    font-color: $ui-color-white,
+    button-color: $identity-color-attention,
+    button-color--hover: $identity-color-attention--hover,
+    button-color--active: $identity-color-attention--active,
+    padding-left-right: spacing-7,
+    padding-top-bottom: spacing-5,
+    margin-bottom: spacing-7,
+    corner-radius: corner-radius-1,
+    margin-right: spacing-0
+) !default;
+
+$button-size-modifiers: (
+    button--primary: (
+        font-size: 20px,
+        line-height: 16px,
+        padding-left-right: spacing-7,
+        padding-top-bottom: spacing-5,
+    ),
+    button--secondary: (
+        font-size: 16px,
+        line-height: 16px,
+        padding-left-right: spacing-7,
+        padding-top-bottom: spacing-4,
+    ),
+    button--icon: (
+        font-size: 16px,
+        line-height: 16px,
+        padding-left-right: spacing-4,
+        padding-top-bottom: spacing-4,
+    )
+) !default;
+
+$button-color-modifiers: (
+    button--success: (
+        button-color: $identity-color-success,
+        button-color--hover: $identity-color-success--hover,
+        button-color--active: $identity-color-success--active,
+    ),
+    button--warning: (
+        button-color: $identity-color-warning,
+        button-color--hover: $identity-color-warning--hover,
+        button-color--active: $identity-color-warning--active,
+    ),
+    button--light: (
+        button-color: $ui-color-white,
+        button-color--hover: $ui-color-white--hover,
+        button-color--active: $ui-color-white--active,
+        font-color: $ui-color-primary-black,
+        border: 1px solid mix-color($ui-color-white, $ui-color-primary-black, opacity-2),
+        border--active: 1px solid mix-color($ui-color-white, $ui-color-primary-black, opacity-3)
+    ),
+    button--dark: (
+        button-color: $ui-color-primary-black,
+        button-color--hover: $ui-color-primary-black--hover,
+        button-color--active: $ui-color-primary-black--active,
+    ),
+) !default;
+
+$link-default: (
+    font-weight: 700,
+    font-size: 16px,
+    line-height: 24px,
+    font-color: $identity-color-attention,
+    font-color--hover: $identity-color-attention--hover,
+    font-color--active: $identity-color-attention--active,
+    link-icon-spacing: spacing-3,
+    margin-bottom: spacing-4,
+    text-decoration--hover: null
+) !default;
+
+$link-icon-width: 12px !default;
+$link-icon-height: 12px !default;

@@ -1,0 +1,21 @@
+@import 'label-variables';
+@import 'label-factory';
+
+@include _generate-label-class(
+        map_get($label-default, font-size),
+        map_get($label-default, font-weight),
+        map_get($label-default, line-height),
+        map_get($label-default, color),
+        map_get($label-default, background-color),
+        map_get($label-default, display),
+        map_get($label-default, padding-left-right),
+        map_get($label-default, padding-top-bottom)
+);
+
+@each $label-class, $label-style-map in $label-theme-modifiers {
+    @include _generate-label-theme-modifier-class(
+            $label-class,
+            map_get($label-style-map, font-color),
+            map_get($label-style-map, background)
+    );
+}

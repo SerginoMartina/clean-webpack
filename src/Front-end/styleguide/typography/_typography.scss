@@ -1,0 +1,31 @@
+@import '../grid/grid-factory';
+@import '../grid/grid-variables';
+@import '../color/color-variables';
+@import 'typography-factory';
+@import 'typography-variables';
+
+// null indicates that this will be used without a @media query, thus being the default
+$typographyMap: (
+    null: $typography-xs-specs,
+    $S: $typography-sm-specs,
+    $M: $typography-md-specs,
+    $L: $typography-lg-specs,
+);
+
+@each $breakpoint, $typography-specs in $typographyMap {
+    @each $typography-class, $font-weight, $font-size, $line-height, $margin-bottom,
+        $default-element, $font-family in $typography-specs
+    {
+        @include breakpoint($breakpoint) {
+            @include generate-typography-class(
+                $typography-class,
+                $font-weight,
+                $font-size,
+                $line-height,
+                $margin-bottom,
+                $default-element,
+                $font-family
+            );
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import '../spacing/spacing';
+
+@mixin top($spacing) {
+    @include _generate-spacing-for(top, _get-spacing($spacing));
+}
+
+@mixin bottom($spacing) {
+    @include _generate-spacing-for(bottom, _get-spacing($spacing));
+}
+
+@mixin left($spacing) {
+    @include _generate-spacing-for(left, _get-spacing($spacing));
+}
+
+@mixin right($spacing) {
+    @include _generate-spacing-for(right, _get-spacing($spacing));
+}

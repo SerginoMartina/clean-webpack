@@ -1,0 +1,56 @@
+@import 'button-variables';
+@import 'button-factory';
+
+@include _generate-button-class(
+    map_get($button-default, font-weight),
+    map_get($button-default, font-size),
+    map_get($button-default, line-height),
+    map_get($button-default, font-color),
+    map_get($button-default, button-color),
+    map_get($button-default, button-color--hover),
+    map_get($button-default, button-color--active),
+    map_get($button-default, padding-left-right),
+    map_get($button-default, padding-top-bottom),
+    map_get($button-default, margin-bottom),
+    map_get($button-default, margin-right),
+    map_get($button-default, corner-radius)
+);
+
+@each $button-class, $button-style-map in $button-size-modifiers {
+    @include _generate-button-size-modifier-class(
+        $button-class,
+        map_get($button-style-map, font-size),
+        map_get($button-style-map, line-height),
+        map_get($button-style-map, padding-left-right),
+        map_get($button-style-map, padding-top-bottom)
+    );
+}
+
+@each $button-class, $button-style-map in $button-color-modifiers {
+    @include _generate-button-color-modifier-class(
+        $button-class,
+        map_get($button-style-map, button-color),
+        map_get($button-style-map, button-color--hover),
+        map_get($button-style-map, button-color--active),
+        map_get($button-style-map, font-color),
+        map_get($button-style-map, font-color--hover),
+        map_get($button-style-map, text-decoration--hover),
+        map_get($button-style-map, border),
+        map_get($button-style-map, border--hover),
+        map_get($button-style-map, border--active),
+        map_get($button-style-map, box-shadow),
+        map_get($button-style-map, box-shadow--hover)
+    );
+}
+
+@include _generate-link-class(
+    map_get($link-default, font-weight),
+    map_get($link-default, font-size),
+    map_get($link-default, line-height),
+    map_get($link-default, font-color),
+    map_get($link-default, font-color--hover),
+    map_get($link-default, font-color--active),
+    map_get($link-default, link-icon-spacing),
+    map_get($link-default, margin-bottom),
+    map_get($link-default, text-decoration--hover)
+);

@@ -1,0 +1,191 @@
+@import 'grid-variables';
+
+@mixin breakpoint($breakpoint) {
+    @if ($breakpoint == $XS) {
+        @media screen and (min-width: #{map-get($grid-breakpoints,xs)}){
+            @content;
+        }
+    }
+    @if ($breakpoint == $S) {
+        @media screen and (min-width: #{map-get($grid-breakpoints,sm)}){
+            @content;
+        }
+    }
+    @if ($breakpoint == $M) {
+        @media screen and (min-width: #{map-get($grid-breakpoints,md)}){
+            @content;
+        }
+    }
+    @if ($breakpoint == $L) {
+        @media screen and (min-width: #{map-get($grid-breakpoints,lg)}){
+            @content;
+        }
+    }
+    @if ($breakpoint == $XL) {
+        @media screen and (min-width: #{map-get($grid-breakpoints, xl)}) {
+            @content;
+        }
+    }
+    @if ($breakpoint == null) {
+        @content;
+    }
+}
+
+// Generate columns for aem grid
+@mixin make-aem-col($breakpoint, $columns) {
+    @for $i from 1 through $columns {
+        .aem-GridColumn {
+            &.aem-GridColumn--#{$breakpoint}--#{$i} {
+                float: left;
+
+                width: ($i * 100% / $columns);
+                clear: none;
+            }
+
+            &.aem-GridColumn--offset--#{$breakpoint}--#{$i} {
+                margin-left: ($i * 100% / $columns);
+            }
+        }
+    }
+}
+
+// Generate AEM grid
+@mixin make-aem-grid($breakpoint, $columns) {
+    &.aem-Grid--#{$columns} {
+        @include make-aem-col($breakpoint, $columns);
+    }
+
+    &.aem-Grid--#{$breakpoint}--#{$columns} {
+        @include make-aem-col($breakpoint, $columns);
+    }
+
+    .aem-GridColumn {
+        &.aem-GridColumn {
+            &--#{$breakpoint} {
+                &--newline {
+                    display: block;
+                    clear: both !important;
+                }
+                &--none {
+                    display: block;
+                    clear: none !important;
+                }
+                &--hide {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@mixin generate-aem-grid($grid-columns) {
+    // Extra small devices
+    @media screen and (max-width: #{map-get($grid-breakpoints, sm) - 1}) {
+        @include make-aem-grid(xs, $grid-columns);
+    }
+
+    // Small devices
+    @media screen and (min-width: #{map-get($grid-breakpoints, sm)})
+    and (max-width: #{map-get($grid-breakpoints, md) - 1}) {
+        @include make-aem-grid(sm, $grid-columns);
+    }
+
+    // Medium devices
+    @media screen and (min-width: #{map-get($grid-breakpoints, md)})
+    and (max-width: #{map-get($grid-breakpoints, lg) - 1}) {
+        @include make-aem-grid(md, $grid-columns);
+    }
+    .aem-Grid {
+        width: 100%;
+        display: block;
+    }
+
+    .aem-Grid::before,
+    .aem-Grid::after {
+        display: table;
+        content: ' ';
+    }
+
+    .aem-Grid::after {
+        clear: both;
+    }
+
+    .aem-Grid-newComponent {
+        margin: 0;
+        clear: both;
+    }
+
+    .aem-GridColumn {
+        box-sizing: border-box;
+        clear: both;
+    }
+
+    .aem-GridShowHidden > .aem-Grid > .aem-GridColumn {
+        display: block !important;
+    }
+
+    // Large devices
+    @include breakpoint($L) {
+        @include make-aem-grid(default, $grid-columns);
+    }
+}
+
+@mixin generate-bootstrap-grid() {
+    .container.container--clear {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    @include breakpoint($XS) {
+        .container,
+        .container--fluid {
+            padding: 0 map_get($grid-outer-gutters, xs);
+        }
+
+        .container,
+        .container--fluid {
+            &.no-gutter {
+                padding-right: 0;
+                padding-left: 0;
+
+                .aem-Grid {
+                    margin-right: 0;
+                    margin-left: 0;
+                }
+
+                .aem-GridColumn {
+                    padding-right: 0;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($S) {
+        .container,
+        .container--fluid {
+            padding: 0 map_get($grid-outer-gutters, sm);
+        }
+    }
+
+    @include breakpoint($M) {
+        .container,
+        .container--fluid {
+            padding: 0 map_get($grid-outer-gutters, md);
+        }
+    }
+
+    @include breakpoint($L) {
+        .container,
+        .container--fluid {
+            padding: 0 map_get($grid-outer-gutters, lg);
+        }
+    }
+
+    @include breakpoint($XL) {
+        .container,
+        .container--fluid {
+            padding: 0 map_get($grid-outer-gutters, xl);
+        }
+    }
+}

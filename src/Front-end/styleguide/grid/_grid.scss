@@ -1,0 +1,8 @@
+@import 'grid-variables';
+@import 'grid-factory';
+@import '~bootstrap/scss/mixins';
+
+@include generate-aem-grid($grid-columns);
+@import '~bootstrap/scss/grid'; // bootstrap generates a grid, the second this file is included
+
+@include generate-bootstrap-grid();

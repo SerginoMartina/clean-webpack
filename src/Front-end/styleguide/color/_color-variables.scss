@@ -1,0 +1,63 @@
+@import 'color-factory';
+
+//ui-color
+$ui-color-shadow-black: #000000 !default;
+$ui-color-primary-black: #101010 !default;
+$ui-color-white: #ffffff !default;
+$ui-color-primary-black--hover: mix-color($ui-color-primary-black, $ui-color-white, opacity-5) !default;
+$ui-color-primary-black--active: mix-color($ui-color-primary-black, $ui-color-white, opacity-3) !default;
+$ui-color-white--hover: mix-color($ui-color-white, $ui-color-shadow-black, opacity-1) !default;
+$ui-color-white--active: $ui-color-white !default;
+$ui-color-grey: mix-color($ui-color-white, $ui-color-primary-black, opacity-1) !default;
+$ui-color-grey-alternate: mix-color($ui-color-primary-black, $ui-color-white, opacity-4) !default;
+$ui-color-disabled-font-color: #AEAEAE !default;
+$ui-color-alternate-black: mix-color($ui-color-primary-black, $ui-color-white, opacity-1) !default;
+
+//identity
+$identity-color-attention: #007A3D !default;
+$identity-color-attention--hover: mix-color($identity-color-attention, $ui-color-primary-black, opacity-3) !default;
+$identity-color-attention--active: mix-color($identity-color-attention, $ui-color-primary-black, opacity-2) !default;
+$identity-color-promotion: #1d9d8b !default;
+$identity-color-signal: #ff9514 !default;
+$identity-color-success: #40A533 !default;
+$identity-color-success--hover: mix-color($identity-color-success, $ui-color-primary-black, opacity-3) !default;
+$identity-color-success--active: mix-color($identity-color-success, $ui-color-primary-black, opacity-2) !default;
+$identity-color-warning: #e63535 !default;
+$identity-color-warning--hover: mix-color($identity-color-warning, $ui-color-primary-black, opacity-3) !default;
+$identity-color-warning--active: mix-color($identity-color-warning, $ui-color-primary-black, opacity-2) !default;
+$identity-gradient-sale: linear-gradient(217.09deg, #9C64FE 0%, aqua 100%) !default;
+
+//TODO-temp
+$opacities-light-ui-background-grey: lighten($ui-color-primary-black, 4%) !default;
+$opacities-light-ui-divider-grey: lighten($ui-color-primary-black, 30%) !default;
+$opacities-light-ui-copy-grey: lighten($ui-color-primary-black, 70%) !default;
+$opacities-dark-ui-background-grey: darken($ui-color-white, 15%) !default;
+$opacities-dark-ui-divider-grey: darken($ui-color-white, 30%) !default;
+$opacities-dark-ui-copy-grey: darken($ui-color-white, 70%) !default;
+
+// BRAND COLORS
+
+$brand-green: #007a3d !default;
+$brand-grassGreen: #40a533 !default;
+$brand-lightGreen: #d3d800 !default;
+$brand-yellow: #ffdd00 !default;
+
+
+// BRAND GRADIENTS
+
+$brand-primary-gradient: linear-gradient(90deg, #289537 0%, #209038 50%, #007a3d 100%) !default;
+$brand-secondary-gradient: linear-gradient(90deg, #40a533 0%, #88be1a 50%, #a9c90f 100%) !default;
+$brand-tertiary-gradient: linear-gradient(90deg, #ffdd00 0%, #d3d800 100%) !default;
+
+$brand-animated-primary-gradient: linear-gradient(90deg, #289537 0%, #209038 20%, #007A3D 50%, #209038 80%, #289537 100%) !default;
+
+// GENERIC COLORS
+
+$brand-white: #ffffff !default;
+$brand-dark: #1e1e1e !default;
+$brand-darkGray: #999999 !default;
+$brand-mediumGray: #EFF0F0 !default;
+$brand-error: #a90410 !default;
+
+// UI COLORS
+$ui-focus-blue: #2A99C7;

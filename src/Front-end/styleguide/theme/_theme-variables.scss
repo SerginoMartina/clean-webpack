@@ -1,0 +1,82 @@
+@import '../color/color-variables';
+
+// button-component
+$button-component-themes: (
+    light: (
+        background-color: $identity-color-attention,
+        border-color: $identity-color-attention,
+        color: $ui-color-white,
+        background-color--hover: darken($identity-color-attention, 5%),
+        border-color--hover: darken($identity-color-attention, 5%),
+        color--hover: $ui-color-white,
+        background-color--focus: darken($identity-color-attention, 10%),
+        border-color--focus: darken($identity-color-attention, 10%),
+        color--focus: $ui-color-white,
+        background-color--active: darken($identity-color-attention, 15%),
+        border-color--active: darken($identity-color-attention, 15%),
+        color--active: $ui-color-white,
+    ),
+    dark: (
+        background-color: $identity-color-attention,
+        border-color: $identity-color-attention,
+        color: $ui-color-white,
+        background-color--hover: darken($identity-color-attention, 5%),
+        border-color--hover: darken($identity-color-attention, 5%),
+        color--hover: $ui-color-white,
+        background-color--focus: darken($identity-color-attention, 10%),
+        border-color--focus: darken($identity-color-attention, 10%),
+        color--focus: $ui-color-white,
+        background-color--active: darken($identity-color-attention, 15%),
+        border-color--active: darken($identity-color-attention, 15%),
+        color--active: $ui-color-white,
+    ),
+) !default;
+
+$container-themes: (
+    'white': (
+        color: $ui-color-primary-black,
+        background-color: $ui-color-white,
+    ),
+    'white-grey': (
+        color: $ui-color-primary-black,
+        background-color: $ui-color-white,
+        container-color: $ui-color-grey,
+    ),
+    'white-black': (
+        color: $ui-color-white,
+        background-color: $ui-color-white,
+        container-color: $ui-color-primary-black,
+    ),
+    'black-white': (
+        color: $ui-color-primary-black,
+        background-color: $ui-color-primary-black,
+        container-color: $ui-color-white,
+    ),
+    'black-alternate': (
+        color: $ui-color-white,
+        background-color: $ui-color-primary-black,
+        container-color: $ui-color-alternate-black,
+    ),
+    'black': (
+        color: $ui-color-white,
+        background-color: $ui-color-primary-black,
+    ),
+    'grey-white': (
+        color: $ui-color-primary-black,
+        background-color: $ui-color-grey,
+        container-color: $ui-color-white,
+    ),
+    'grey': (
+        color: $ui-color-primary-black,
+        background-color: $ui-color-grey,
+    ),
+    'grey-black': (
+        color: $ui-color-white,
+        background-color: $ui-color-grey,
+        container-color: $ui-color-primary-black,
+    ),
+) !default;
+
+$gradient-themes: () !default;
+
+

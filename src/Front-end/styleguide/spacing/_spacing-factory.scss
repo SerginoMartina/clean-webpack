@@ -1,0 +1,69 @@
+@import 'spacing-variables';
+
+@function _get-spacing($spacing) {
+    @if ($spacing) {
+        @return map-get($spacings, $spacing);
+    }
+
+    @return null;
+}
+
+@mixin _generate-spacing-for($spacing-type, $spacing) {
+    #{$spacing-type}: $spacing;
+}
+
+// margin
+@mixin margin($spacing) {
+    @include _generate-spacing-for(margin, _get-spacing($spacing));
+}
+@mixin margin-vertical-horizontal($spacing-vertical, $spacing-horizontal) {
+    @include _generate-spacing-for(margin, #{_get-spacing($spacing-vertical) _get-spacing($spacing-horizontal)});
+}
+@mixin margin-top($spacing) {
+    @include _generate-spacing-for(margin-top, _get-spacing($spacing));
+}
+@mixin margin-bottom($spacing) {
+    @include _generate-spacing-for(margin-bottom, _get-spacing($spacing));
+}
+@mixin margin-left($spacing) {
+    @include _generate-spacing-for(margin-left, _get-spacing($spacing));
+}
+@mixin margin-right($spacing) {
+    @include _generate-spacing-for(margin-right, _get-spacing($spacing));
+}
+
+@mixin margin-horizontal($spacing-horizontal) {
+    @include _generate-spacing-for(margin, 0 #{_get-spacing($spacing-horizontal)});
+}
+
+@mixin margin-vertical($spacing-vertical) {
+    @include _generate-spacing-for(margin, #{_get-spacing($spacing-vertical)} 0);
+}
+
+// padding
+@mixin padding($spacing) {
+    @include _generate-spacing-for(padding, _get-spacing($spacing));
+}
+
+@mixin padding-horizontal($spacing-horizontal) {
+    @include _generate-spacing-for(padding, 0 #{_get-spacing($spacing-horizontal)});
+}
+
+@mixin padding-vertical($spacing-vertical) {
+    @include _generate-spacing-for(padding, #{_get-spacing($spacing-vertical)} 0);
+}
+@mixin padding-vertical-horizontal($spacing-vertical, $spacing-horizontal) {
+    @include _generate-spacing-for(padding, #{_get-spacing($spacing-vertical) _get-spacing($spacing-horizontal)});
+}
+@mixin padding-top($spacing) {
+    @include _generate-spacing-for(padding-top, _get-spacing($spacing));
+}
+@mixin padding-bottom($spacing) {
+    @include _generate-spacing-for(padding-bottom, _get-spacing($spacing));
+}
+@mixin padding-left($spacing) {
+    @include _generate-spacing-for(padding-left, _get-spacing($spacing));
+}
+@mixin padding-right($spacing) {
+    @include _generate-spacing-for(padding-right, _get-spacing($spacing));
+}

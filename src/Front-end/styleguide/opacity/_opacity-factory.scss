@@ -1,0 +1,17 @@
+@import 'opacity-variables';
+
+@function _get-opacity($opacity) {
+    @if ($opacity) {
+        @return map-get($opacities, $opacity);
+    }
+}
+
+@function _get-opacity-percentage($opacity) {
+    @if ($opacity) {
+        @return map-get($opacities, $opacity) * 100;
+    }
+}
+
+@mixin opacity($opacity) {
+    opacity: _get-opacity($opacity);
+}

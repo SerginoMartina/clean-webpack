@@ -1,0 +1,50 @@
+@import 'font-variables-unicode-ranges';
+
+$font-base-name: Montserrat !default;
+$font-fallback-default: arial, helvetica, sans-serif !default;
+$font-base-path: '/etc.clientlibs/slingshot/clientlibs/default/resources/fonts' !default;
+
+$primary-font: (
+    font-family: $font-base-name,
+    font-file-name: montserrat-regular,
+    font-weight: 400,
+    unicode-ranges: (
+        latin
+    ),
+) !default;
+$primary-font-semi-bold: (
+    font-family: $font-base-name,
+    font-file-name: montserrat-600,
+    font-weight: 700,
+    unicode-ranges: (
+        latin
+    ),
+) !default;
+$primary-font-bold: (
+    font-family: $font-base-name,
+    font-file-name: montserrat-700,
+    font-weight: 700,
+    unicode-ranges: (
+        latin
+    ),
+) !default;
+$primary-font-extra-bold: (
+    font-family: $font-base-name,
+    font-file-name: montserrat-900,
+    font-weight: 900,
+    unicode-ranges: (
+        latin
+    ),
+) !default;
+
+$fontFaceMap: ($primary-font, $primary-font-semi-bold, $primary-font-bold, $primary-font-extra-bold) !default;
+
+$localeBasedFontFamilyOverrides: () !default;
+
+$supportedFontFormats: (
+    // 'eot': 'eot',
+    // 'eot?#iefix': 'embedded-opentype',
+    // 'woff': 'woff',
+    // 'woff2': 'woff2',
+    'ttf': 'truetype',
+) !default;

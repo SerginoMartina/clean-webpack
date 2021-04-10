@@ -1,0 +1,24 @@
+@import 'font-factory';
+@import 'font-variables';
+
+// generate @font-face rules
+@each $font in $fontFaceMap {
+    @include _generate-font-face(
+            map-get($font, font-family),
+            map-get($font, font-file-name),
+            map-get($font, unicode-ranges),
+            map-get($font, font-weight)
+    );
+}
+
+// generate :lang overrides
+* {
+    font-family: $font-base-name, #{$font-fallback-default};
+}
+@each $fontFamily, $locales in $localeBasedFontFamilyOverrides {
+    @each $locale in $locales {
+        :lang(#{$locale}) {
+            font-family: $fontFamily;
+        }
+    }
+}

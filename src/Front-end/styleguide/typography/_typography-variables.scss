@@ -1,0 +1,104 @@
+//
+// Large breakpoint
+//
+
+// list keys: classname, font-weight, font-size, line-height, margin-bottom, default element (optional)
+$typography-lg-specs: (
+    //PAGETITLE
+    (heading-1, 900, 40px, 48px, spacing-7, h1),
+    //SECTION TITLE
+    (heading-2, 900, 36px, 44px, spacing-7, h2),
+    //Subtle title
+    (heading-3, 400, 26px, 36px, spacing-7, h3),
+    //Block title
+    (heading-4, 400, 24px, 28px, spacing-4, h4),
+    //Title
+    (heading-5, 700, 20px, 26px, spacing-4, h5),
+    (heading-6, 400, 20px, 26px, spacing-4, h6),
+    //Body Text
+    (body-copy, 400, 16px, 28px, spacing-7, p),
+    (body-copy--semi-bold, 600, 16px, 28px, spacing-7),
+    //Footnote
+    (footnote, normal, 12px, 20px, spacing-3),
+    //Label
+    (label, 400, 18px, 20px, spacing-3),
+    (label-strong, 700, 18px, 20px, spacing-3)
+) !default;
+
+//
+// Medium breakpoint
+//
+
+$typography-md-specs: (
+    //PAGE TITLE
+    (heading-1, 900, 40px, 48px, spacing-8, h1),
+    //SECTION TITLE
+    (heading-2, 900, 32px, 40px, spacing-7, h2),
+    //Subtle title
+    (heading-3, 400, 24px, 30px, spacing-7, h3),
+    //Block title
+    (heading-4, 400, 20px, 24px, spacing-4, h4),
+    //Title
+    (heading-5, 700, 20px, 26px, spacing-4, h5),
+    (heading-6, 400, 16px, 18px, spacing-4, h6),
+    //Body Text
+    (body-copy, 400, 16px, 28px, spacing-7, p),
+    (body-copy--semi-bold, 600, 16px, 28px, spacing-7),
+    //Footnote
+    (footnote, normal, 12px, 20px, spacing-3),
+    //Label
+    (label, 400, 16px, 18px, spacing-3),
+    (label-strong, 700, 16px, 18px, spacing-3)
+) !default;
+
+//
+// Small breakpoint
+//
+
+$typography-sm-specs: (
+    //PAGE TITLE
+    (heading-1, 900, 26px, 34px, spacing-6, h1),
+    //SECTION TITLE
+    (heading-2, 900, 26px, 32px, spacing-7, h2),
+    //Subtle title
+    (heading-3, 400, 20px, 28px, spacing-7, h3),
+    //Block title
+    (heading-4, 400, 22px, 28px, spacing-4, h4),
+    //Title
+    (heading-5, 700, 20px, 26px, spacing-4, h5),
+    (heading-6, 400, 16px, 18px, spacing-4, h6),
+    //Body Text
+    (body-copy, 400, 16px, 28px, spacing-7, p),
+    (body-copy--semi-bold, 600, 16px, 28px, spacing-7),
+    //Footnote
+    (footnote, normal, 12px, 20px, spacing-3),
+    //Label
+    (label, 400, 16px, 18px, spacing-3),
+    (label-strong, 700, 16px, 18px, spacing-3)
+) !default;
+
+//
+// Extra Small breakpoint
+//
+
+$typography-xs-specs: (
+    //PAGE TITLE
+    (heading-1, 900, 26px, 34px, spacing-6, h1),
+    //SECTION TITLE
+    (heading-2, 900, 26px, 32px, spacing-7, h2),
+    //Subtle title
+    (heading-3, 400, 20px, 28px, spacing-7, h3),
+    //Block title
+    (heading-4, 400, 22px, 28px, spacing-4, h4),
+    //Title
+    (heading-5, 700, 20px, 26px, spacing-4, h5),
+    (heading-6, 400, 16px, 18px, spacing-4, h6),
+    //Body Text
+    (body-copy, 400, 16px, 28px, spacing-7, p),
+    (body-copy--semi-bold, 600, 16px, 28px, spacing-7),
+    //Footnote
+    (footnote, normal, 12px, 20px, spacing-3),
+    //Label
+    (label, 400, 16px, 18px, spacing-3),
+    (label-strong, 700, 16px, 18px, spacing-3)
+) !default;

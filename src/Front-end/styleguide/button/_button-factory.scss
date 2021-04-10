@@ -1,0 +1,214 @@
+@import 'button-variables';
+@import '../spacing/spacing';
+@import '../corner-radius/corner-radius';
+@import '../opacity/opacity';
+
+@mixin _generate-button-class(
+    $font-weight,
+    $font-size,
+    $line-height,
+    $font-color,
+    $button-color,
+    $button-color--hover,
+    $button-color--active,
+    $padding-left-right,
+    $padding-top-bottom,
+    $margin-bottom,
+    $margin-right,
+    $corner-radius: null
+) {
+    .button {
+        position: relative;
+
+        border: none;
+
+        text-align: center;
+
+        font-size: $font-size;
+        font-weight: $font-weight;
+        line-height: $line-height;
+
+        color: $font-color;
+        background-color: $button-color;
+
+        display: inline-block;
+
+        cursor: pointer;
+
+        @include padding-left($padding-left-right);
+        @include padding-right($padding-left-right);
+        @include padding-top($padding-top-bottom);
+        @include padding-bottom($padding-top-bottom);
+        @include margin-bottom($margin-bottom);
+        @include margin-right($margin-right);
+
+        @if ($corner-radius != null) {
+            @include corner-radius($corner-radius);
+        }
+
+        &:hover {
+            color: $font-color;
+            background-color: $button-color--hover;
+        }
+
+        &:active {
+            background-color: $button-color--active;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &.disabled {
+            pointer-events: none;
+            @include opacity(opacity-5);
+        }
+
+        .icon {
+            fill: $font-color;
+        }
+    }
+}
+
+@mixin _generate-button-size-modifier-class(
+    $button-name,
+    $font-size,
+    $line-height,
+    $padding-left-right,
+    $padding-top-bottom
+) {
+    .button.#{$button-name} {
+        font-size: $font-size;
+        line-height: $line-height;
+
+        @include padding-left($padding-left-right);
+        @include padding-right($padding-left-right);
+        @include padding-top($padding-top-bottom);
+        @include padding-bottom($padding-top-bottom);
+    }
+}
+
+@mixin _generate-button-color-modifier-class(
+    $button-name,
+    $button-color,
+    $button-color--hover,
+    $button-color--active,
+    $font-color: null,
+    $font-color--hover: null,
+    $text-decoration--hover: null,
+    $border: null,
+    $border--hover: null,
+    $border--active: null,
+    $box-shadow: null,
+    $box-shadow--hover: null
+) {
+    .button.#{$button-name} {
+        border: $border;
+
+        color: $font-color;
+        background-color: $button-color;
+
+        box-shadow: $box-shadow;
+
+        &:hover {
+            border: $border--hover;
+
+            text-decoration: $text-decoration--hover;
+
+            color: $font-color--hover;
+            background-color: $button-color--hover;
+
+            box-shadow: $box-shadow--hover;
+        }
+
+        &:active {
+            border: $border--active;
+
+            background-color: $button-color--active;
+        }
+
+        .icon {
+            fill: $font-color;
+        }
+    }
+}
+
+@mixin generate-anchor(
+    $font-weight,
+    $font-size,
+    $line-height,
+    $font-color,
+    $font-color--hover,
+    $font-color--active,
+    $link-icon-spacing,
+    $margin-bottom,
+    $text-decoration--hover) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+
+    color: $font-color;
+    display: inline-block;
+
+    @include margin-bottom($margin-bottom);
+
+    &:hover {
+        text-decoration: $text-decoration--hover;
+
+        color: $font-color--hover;
+
+        .icon {
+            fill: $font-color--hover;
+        }
+    }
+
+    &:active {
+        color: $font-color--active;
+
+        .icon {
+            fill: $font-color--active;
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+        @include opacity(opacity-5);
+
+        .icon {
+            pointer-events: none;
+            @include opacity(opacity-5);
+        }
+    }
+
+    .icon {
+        width: $link-icon-width;
+        height: $link-icon-height;
+        fill: $font-color;
+    }
+}
+
+@mixin _generate-link-class(
+    $font-weight,
+    $font-size,
+    $line-height,
+    $font-color,
+    $font-color--hover,
+    $font-color--active,
+    $link-icon-spacing,
+    $margin-bottom,
+    $text-decoration--hover
+) {
+    .link {
+
+        @include generate-anchor(
+                $font-weight,
+                $font-size,
+                $line-height,
+                $font-color,
+                $font-color--hover,
+                $font-color--active,
+                $link-icon-spacing,
+                $margin-bottom,
+                $text-decoration--hover);
+    }
+}

@@ -1,0 +1,42 @@
+@import '../spacing/spacing-factory';
+
+@mixin _generate-label-class(
+    $font-size,
+    $font-weight,
+    $line-height,
+    $color,
+    $background-color,
+    $display,
+    $padding-left-right,
+    $padding-top-bottom
+) {
+    .label {
+        text-transform: uppercase;
+
+        font-size: $font-size;
+        font-weight: $font-weight;
+
+        line-height: $line-height;
+
+        color: $color;
+        background-color: $background-color;
+
+        display: $display;
+
+        @include padding-left($padding-left-right);
+        @include padding-right($padding-left-right);
+        @include padding-top($padding-top-bottom);
+        @include padding-bottom($padding-top-bottom);
+    }
+}
+
+@mixin _generate-label-theme-modifier-class(
+    $label-name,
+    $font-color,
+    $background
+) {
+    .label.#{$label-name} {
+        color: $font-color;
+        background: $background;
+    }
+}

@@ -1,0 +1,25 @@
+$dropdown-default: (
+    color: $ui-color-primary-black,
+    background-color: $ui-color-white,
+    vertical-padding: spacing-2,
+    horizontal-padding: spacing-3,
+    font-size: 14px,
+    corner-radius: corner-radius-1,
+    toggle-icon-color: $ui-color-primary-black,
+    hover-background-color: $identity-color-attention--hover,
+    hover-color: $ui-color-primary-black,
+    selected-font: rl_bold,
+    min-width: 150px,
+    disabled-color: $ui-color-shadow-black
+) !default;
+
+$dropdown-color-modifiers: (
+    dropdown--inverted: (
+        color: $ui-color-white,
+        background-color: $ui-color-primary-black,
+        toggle-icon-color: $identity-color-attention,
+        hover-background-color: $identity-color-attention--hover,
+        hover-color: $ui-color-primary-black,
+        disabled-color: $ui-color-shadow-black
+    )
+) !default;

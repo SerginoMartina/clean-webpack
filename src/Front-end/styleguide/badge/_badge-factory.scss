@@ -1,0 +1,24 @@
+@import '../corner-radius/corner-radius';
+
+@mixin _generate-badge-class(
+    $font-size,
+    $line-height,
+    $width,
+    $display,
+    $color,
+    $background-color
+) {
+    .badge {
+        width: $width;
+
+        font-size: $font-size;
+
+        line-height: $line-height;
+
+        color: $color;
+        background-color: $background-color;
+
+        display: $display;
+        border-radius: _get-corner-radius(corner-radius-2);
+    }
+}

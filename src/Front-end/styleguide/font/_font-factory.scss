@@ -1,0 +1,44 @@
+@import 'font-variables';
+
+@function _getUnicodeRange($unicode-range) {
+    @return unquote(map-get($availableUnicodeRanges, $unicode-range));
+}
+
+/* stylelint-disable */
+@function _generateFontFaceSources($font-file-name, $unicode-range) {
+    $src: null;
+    @each $extension, $format in $supportedFontFormats {
+        $src: append(
+            $src,
+            unquote(
+                'url("#{$font-base-path}/#{$font-file-name}-#{$unicode-range}.#{$extension}") format("#{$format}"),'
+            )
+        );
+    }
+
+    $src: quote($src);
+    $src: str-slice($src, 0, -2);
+    $src: unquote($src);
+    @return $src;
+}
+/* stylelint-enable */
+
+@mixin _generate-font-face(
+    $font-family,
+    $font-file-name,
+    $unicode-ranges,
+    $font-weight: normal,
+    $font-normal: normal,
+    $font-display: swap
+) {
+    @each $unicode-range in $unicode-ranges {
+        @font-face {
+            font-family: '#{$font-family}';
+            font-style: $font-normal;
+            font-weight: $font-weight;
+            font-display: $font-display;
+            unicode-range: _getUnicodeRange($unicode-range);
+            src: _generateFontFaceSources($font-file-name, $unicode-range);
+        }
+    }
+}

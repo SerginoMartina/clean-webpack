@@ -1,0 +1,4 @@
+@import 'shadow-variables';
+@mixin generate-shadow($shadow-level) {
+    box-shadow: map-get($shadows, $shadow-level);
+}

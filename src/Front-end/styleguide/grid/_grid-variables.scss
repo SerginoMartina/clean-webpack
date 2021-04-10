@@ -1,0 +1,40 @@
+$enable-grid-classes: true !default;
+$grid-columns: 12 !default;
+$grid-gutter-width: 32px;
+$grid-max-width: 1408px;
+
+//  When changing these breakpoints also change the breakpoints in the templates and template-types.
+//  In the templates and template-types always take the value from the next breakpoint and subtrack 1.
+//  e.g. :  xs = 600
+//          s = 768
+//          ...
+
+$grid-breakpoints: (
+    xs: 320px,
+    sm: 512px,
+    md: 768px,
+    lg: 1152px,
+    xl: 1409px,
+);
+
+$container-max-widths: (
+    xs: map_get($grid-breakpoints, sm) - 1,
+    sm: map_get($grid-breakpoints, md) - 1,
+    md: map_get($grid-breakpoints, lg) - 1,
+    lg: $grid-max-width,
+);
+
+$grid-outer-gutters: (
+    xs: 16px,
+    sm: 16px,
+    md: 40px,
+    lg: 64px,
+    xl: 64px,
+);
+
+// breakpoint shorthands
+$XS: XS;
+$S: S;
+$M: M;
+$L: L;
+$XL: XL;

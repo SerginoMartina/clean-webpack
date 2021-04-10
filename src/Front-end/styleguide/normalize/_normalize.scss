@@ -1,0 +1,27 @@
+@import 'normalize-factory';
+@import 'normalize-variables';
+
+// produce bootstrap reboot
+@import '~bootstrap/scss/reboot';
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.xf-content-height {
+    margin: 0;
+}
+
+.img-responsive {
+    max-width: 100%;
+    display: block;
+}
+
+p {
+    word-break: break-word;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}

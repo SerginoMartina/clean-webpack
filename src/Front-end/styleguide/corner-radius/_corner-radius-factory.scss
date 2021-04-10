@@ -1,0 +1,11 @@
+@import 'corner-radius-variables';
+
+@function _get-corner-radius($corner-radius) {
+    @if ($corner-radius) {
+        @return map-get($corner-radii, $corner-radius);
+    }
+}
+
+@mixin corner-radius($corner-radius) {
+    border-radius: _get-corner-radius($corner-radius);
+}

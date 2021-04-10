@@ -1,0 +1,11 @@
+@import '../color/color-variables';
+
+$link-color: $identity-color-attention;
+
+@import '~bootstrap/scss/functions'; // bootstrap functions need to be included to avoid errors
+@import '~bootstrap/scss/variables'; // bootstrap variables necessary for SASS
+
+$body-color: $ui-color-primary-black;
+$link-decoration: none;
+$link-hover-color: $identity-color-attention--hover;
+$link-hover-decoration: none;

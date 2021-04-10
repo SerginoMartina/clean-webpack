@@ -1,0 +1,35 @@
+@import 'icon-variables';
+
+[class^='icon-'],
+[class*='icon-'],
+.icon {
+    width: $icon-default-width;
+    height: $icon-default-height;
+    display: inline-block;
+}
+
+.icon {
+    &--sm {
+        width: $icon-small-width;
+        height: $icon-small-height;
+    }
+
+    &--md {
+        width: $icon-medium-width;
+        height: $icon-medium-height;
+    }
+
+    &--lg {
+        width: $icon-large-width;
+        height: $icon-large-height;
+    }
+
+    &.xl {
+        width: $icon-xlarge-width;
+        height: $icon-xlarge-height;
+    }
+
+    &--default {
+        fill: $icon--default--fill;
+    }
+}

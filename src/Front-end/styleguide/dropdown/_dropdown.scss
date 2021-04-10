@@ -1,0 +1,29 @@
+@import 'dropdown-variables';
+@import 'dropdown-factory';
+
+@include _generate-dropdown-class(
+    map_get($dropdown-default, color),
+    map_get($dropdown-default, background-color),
+    map_get($dropdown-default, vertical-padding),
+    map_get($dropdown-default, horizontal-padding),
+    map_get($dropdown-default, font-size),
+    map_get($dropdown-default, corner-radius),
+    map_get($dropdown-default, toggle-icon-color),
+    map_get($dropdown-default, hover-background-color),
+    map_get($dropdown-default, hover-color),
+    map_get($dropdown-default, selected-font),
+    map_get($dropdown-default, min-width),
+    map_get($dropdown-default, disabled-color)
+)
+
+@each $dropdown-class, $dropdown-style-map in $dropdown-color-modifiers {
+    @include _generate-dropdown-color-modifier-class(
+            $dropdown-class,
+            map_get($dropdown-style-map, color),
+            map_get($dropdown-style-map, background-color),
+            map_get($dropdown-style-map, toggle-icon-color),
+            map_get($dropdown-style-map, hover-background-color),
+            map_get($dropdown-style-map, hover-color),
+            map_get($dropdown-style-map, disabled-color)
+    );
+}

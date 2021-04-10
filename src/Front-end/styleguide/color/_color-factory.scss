@@ -1,0 +1,15 @@
+@import '../opacity/opacity-factory';
+
+@function mix-color($base-color, $overlay-color, $overlay-percentage) {
+    @return mix($overlay-color, $base-color, _get-opacity-percentage($overlay-percentage));
+}
+
+@mixin linear-gradient-background(
+    $gradient-color-start,
+    $gradient-color-end,
+    $inset-left,
+    $inset-right,
+    $angle
+) {
+    background: linear-gradient($angle, $gradient-color-start $inset-left, $gradient-color-end $inset-right);
+}

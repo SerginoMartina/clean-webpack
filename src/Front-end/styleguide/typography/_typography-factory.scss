@@ -1,0 +1,60 @@
+@import './typography-variables';
+@import '../spacing/spacing-factory';
+
+@mixin _generate-typography($font-weight, $font-size, $line-height: null, $margin-bottom: null, $font-family: null) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+
+    @include margin-bottom($margin-bottom);
+}
+
+@mixin generate-typography-class(
+    $typography-name,
+    $font-weight,
+    $font-size,
+    $line-height: null,
+    $margin-bottom: null,
+    $default-element: null,
+    $font-family: null
+) {
+    @if ($default-element == null) {
+        .#{$typography-name} {
+            @include _generate-typography($font-weight, $font-size, $line-height, $margin-bottom, $font-family);
+        }
+    } @else {
+        #{$default-element},
+        .#{$typography-name} {
+            @include _generate-typography($font-weight, $font-size, $line-height, $margin-bottom, $font-family);
+        }
+    }
+}
+
+@function _get-typography-per-breakpoint($typography-key, $typography-list) {
+    @each $typography-class, $font-weight, $font-size in $typography-list {
+        @if ($typography-key == $typography-class) {
+            @return $font-size;
+        }
+    }
+}
+
+@function _get-typography($typography-breakpoint, $typography-key) {
+    @if ($typography-key) {
+        @if $typography-breakpoint == 'lg' {
+            @return _get-typography-per-breakpoint($typography-key, $typography-lg-specs);
+        } @else if $typography-breakpoint == 'md' {
+            @return _get-typography-per-breakpoint($typography-key, $typography-md-specs);
+        } @else if $typography-breakpoint == 'sm' {
+            @return _get-typography-per-breakpoint($typography-key, $typography-sm-specs);
+        } @else {
+            @return _get-typography-per-breakpoint($typography-key, $typography-xs-specs);
+        }
+    }
+
+    @return null;
+}
+
+@mixin typography-style($typography-breakpoint-key, $typography-key) {
+    font-size: _get-typography($typography-breakpoint-key, $typography-key);
+}

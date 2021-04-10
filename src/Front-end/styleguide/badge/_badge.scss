@@ -1,0 +1,11 @@
+@import 'badge-variables';
+@import 'badge-factory';
+
+@include _generate-badge-class(
+        map_get($badge-default, font-size),
+        map_get($badge-default, line-height),
+        map_get($badge-default, width),
+        map_get($badge-default, display),
+        map_get($badge-default, color),
+        map_get($badge-default, background-color)
+);

@@ -1,0 +1,97 @@
+@import '../color/color-factory';
+
+// section-component theme
+@mixin container-theme($theme) {
+    color: map_get($theme, 'color');
+    background-color: map_get($theme, 'background-color');
+
+    @if (map_get($theme, 'container-color')) {
+        .section-component__container,
+        .section-component__container--fluid {
+            background-color: map_get($theme, 'container-color');
+        }
+    }
+
+    @if (map_get($theme, 'heading-color')) {
+        .heading-1,
+        .heading-2,
+        .heading-3,
+        .heading-4,
+        .heading-5,
+        .heading-6{
+            color: map_get($theme, 'heading-color');
+        }
+    }
+
+    .icon:not(.icon.unthemeable),
+    .icon:not(.link .icon) {
+        fill: map_get($theme, 'color');
+    }
+
+    .list--bullet {
+        li {
+            &:before {
+                background-color: map_get($theme, 'color');
+            }
+        }
+    }
+}
+
+// button-component-theme
+@mixin button-theme($theme) {
+    border-color: map_get($theme, 'border-color');
+
+    color: map_get($theme, 'color');
+    background-color: map_get($theme, 'background-color');
+
+    &:hover {
+        border-color: map_get($theme, 'border-color--hover');
+
+        color: map_get($theme, 'color--hover');
+        background-color: map_get($theme, 'background-color--hover');
+    }
+
+    &:focus {
+        border-color: map_get($theme, 'border-color--focus');
+
+        color: map_get($theme, 'color--focus');
+        background-color: map_get($theme, 'background-color--focus');
+    }
+
+    &:active {
+        border-color: map_get($theme, 'border-color--active');
+
+        color: map_get($theme, 'color--active');
+        background-color: map_get($theme, 'background-color--active');
+    }
+}
+
+// section-component theme gradient
+@mixin gradient-theme($theme) {
+    color: map_get($theme, 'color');
+    background-color: map_get($theme, 'background-color');
+
+    .section-component__container,
+    .section-component__container--fluid {
+        @include linear-gradient-background(
+            map_get($theme, 'gradient-color-start'),
+            map_get($theme, 'gradient-color-end'),
+            map_get($theme, 'gradient-inset-left'),
+            map_get($theme, 'gradient-inset-right'),
+            map_get($theme, 'gradient-angle')
+        );
+    }
+
+    .icon:not(.icon.unthemeable),
+    .icon:not(.link .icon) {
+        fill: map_get($theme, 'color');
+    }
+
+    .list--bullet {
+        li {
+            &:before {
+                background-color: map_get($theme, 'color');
+            }
+        }
+    }
+}

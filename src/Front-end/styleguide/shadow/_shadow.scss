@@ -1,0 +1,8 @@
+@import 'shadow-variables';
+@import 'shadow-factory';
+
+@each $shadow-level, $shadow-values in $shadows {
+    .#{$shadow-level} {
+        @include generate-shadow($shadow-level);
+    }
+}

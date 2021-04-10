@@ -1,0 +1,32 @@
+@import '../list/list-factory';
+@import '../button/button-variables';
+@import '../button/button-factory';
+
+@mixin rich-text-content() {
+    .rich-text-content {
+        ul {
+            @include generate-list-base();
+            @include generate-list-bullet();
+        }
+
+        ol {
+            @include generate-list-base();
+            @include generate-list-number();
+        }
+
+        a {
+            @include generate-anchor(
+                map_get($link-default, font-weight),
+                map_get($link-default, font-size),
+                map_get($link-default, line-height),
+                map_get($link-default, font-color),
+                map_get($link-default, font-color--hover),
+                map_get($link-default, font-color--active),
+                map_get($link-default, link-icon-spacing),
+                map_get($link-default, margin-bottom),
+                map_get($link-default, text-decoration--hover)
+            );
+
+        }
+    }
+}
